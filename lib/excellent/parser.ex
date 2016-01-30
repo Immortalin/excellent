@@ -58,11 +58,7 @@ defmodule Excellent.Parser do
   end
 
   defp calculate_type(style, type) do
-    stripped_style = Regex.replace(~r/(\"[^\"]*\"|\[[^\]]*\]|[\\_*].)/i, style, "")
-    if Regex.match?(~r/[dmyhs]/i, stripped_style) do
-      "date"
-    else
-      case {type, style} do
+    case {type, style} do
         {@shared_string_type, _} ->
           "shared_string"
         {@number_type, _} ->
@@ -71,7 +67,6 @@ defmodule Excellent.Parser do
           "boolean"
         _ ->
           "string"
-      end
     end
   end
 
