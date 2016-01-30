@@ -46,7 +46,7 @@ Then run `mix deps.get` in the shell to fetch and compile the dependencies
 The top level funtion takes 2 arguments: the filename and the number of the worksheet you want to parse (zero based).
 
 ```elixir
-Excellent.parse('spreadsheet.xlsx', 0)
+Excellent.parse(String.to_char_list("spreadsheet.xlsx'"), 0)
 
 => [
   ["A1", "B1", "C1", "D1"],
